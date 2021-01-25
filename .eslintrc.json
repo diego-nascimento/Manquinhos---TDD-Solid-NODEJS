@@ -5,6 +5,7 @@
   },
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "space-before-blocks": "off"
+    "space-before-blocks": "off",
+    "@typescript-eslint/method-signature-style": "off"
   }
 }
