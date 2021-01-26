@@ -4,7 +4,7 @@ import { HttpRequest } from './../protocols/http'
 import { Controller } from '../protocols/controllers'
 
 export class SignUpController implements Controller{
-  handle (httpRequest: HttpRequest): HttpResponse {
+  handle (httpRequest: HttpRequest): any {
     const requiredField = ['name', 'email', 'password', 'passwordConfirmation']
 
     for (const field of requiredField){
