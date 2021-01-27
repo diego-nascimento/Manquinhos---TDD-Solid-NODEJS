@@ -1,0 +1,32 @@
+
+import { MongoHelper } from '../Helpers/mongodb-helpers'
+import { AccountMongoRepository } from './account'
+
+describe('Account Mongo Repository', () => {
+  beforeAll(async () => {
+    await MongoHelper.connect('mongodb://localhost:27017/jest')
+  })
+
+  afterAll(async () => {
+    await MongoHelper.disconnect()
+  })
+
+  const makeSUT = (): AccountMongoRepository => {
+    return new AccountMongoRepository()
+  }
+
+  test('should return an account on sucess', async () => {
+    const sut = makeSUT()
+    const account = await sut.add({
+      name: 'valid_name',
+      password: 'valid_password',
+      email: 'valid_email'
+    })
+
+    expect(account).toBeTruthy()
+    expect(account.id).toBeTruthy()
+    expect(account.name).toBe('valid_name')
+    expect(account.email).toBe('valid_email')
+    expect(account.password).toBe('valid_password')
+  })
+})
