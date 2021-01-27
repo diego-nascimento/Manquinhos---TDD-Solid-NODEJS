@@ -4,7 +4,8 @@ import { AccountMongoRepository } from './account'
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect('mongodb://localhost:27017/jest')
+    const url = 'mongodb://localhost:27017/jest'
+    await MongoHelper.connect(url)
   })
 
   afterAll(async () => {
